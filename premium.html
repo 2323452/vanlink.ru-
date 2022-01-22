@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vanlink</title>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<!---------------------Импорт-Fontawesome-Pro-версия---------------------->
+<link href="https://kit-pro.fontawesome.com/releases/v5.13.0/css/pro.min.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'">
+<!---------------------Импорт-Fontawesome-Pro-версия---------------------->
+<script src="https://cdn.lr-ingest.io/LogRocket.min.js" crossorigin="anonymous"></script>
+<script src="https://timeago.org/timeago.full.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+<script src="https://unpkg.com/notie"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-app.js"></script>
+
+<script>
+// Сбрасивает токен 1 раз козда заходишь на сайт //
+window.addEventListener("load",function(){
+if (localStorage.getItem("rv") != "v2") {
+localStorage.removeItem("duscordsave");
+localStorage.setItem("rv","v2");
+}});
+// P.S Можно поменять v1 на v2 и тогда заново сброс будет работать //
+</script>
+
+<script>
+var r2 = null;
+var usetokentype = null;
+var usetoken = null;
+window.addEventListener("load",function loadEv(){
+var r = {};
+if (!r2) {
+var r2 = location.hash.substring(1).split("&");
+}
+for (var r3 in r2) {
+var r4 = r2[r3].split("=");
+r[r4[0]] = r4[1];
+}
+if (r.token_type && r.access_token) {
+usetokentype = r.token_type;
+usetoken = r.access_token;
+localStorage.setItem("duscordsave",location.hash.substring(1));
+history.pushState(null,null,"/premium");
+}
+if (localStorage.getItem("duscordsave")) {
+if (!r.token_type || !r.access_token) {
+history.pushState(null,null,`/premium#${localStorage.getItem("duscordsave")}`);
+loadEv.call();
+return false;
+}
+}
+if (r.token_type && r.access_token) {
+var xhr = new XMLHttpRequest();
+xhr.open("GET",`${location.origin}/apilogin/${r.token_type}/${r.access_token}/${r.expires_in}`);
+xhr.onreadystatechange = function() {
+if (xhr.readyState == 4) {
+var r2 = JSON.parse(xhr.responseText);
+if (r2.q == "undefined#undefined") {
+localStorage.removeItem("duscordsave");
+history.pushState(null,null,"/premium");
+loadEv.call();
+return false;
+}
+document.querySelector("#nicknameofg").innerHTML = r2.q;
+document.querySelector("#avatar_here").src = r2.w;
+document.querySelector("#token").value = `${r.token_type} ${r.access_token}`;
+if (r2.premiumnotd) {
+document.querySelector(".hidemeifnotpremium").style.display = "block";
+}
+}
+};
+xhr.send();
+}
+});
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<!------------------------------Название-сайта---------------------------->
+<meta property="og:site_name" content="Vanlink">
+<!------------------------------Название-сайта---------------------------->
+
+<!-------------------------------url-ссылка------------------------------->
+<meta property="og:url" content="https://vanlink.ru">
+<!-------------------------------url-ссылка------------------------------->
+
+<!----------------------Адаптация-под-мобильный-телефон------------------->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!----------------------Адаптация-под-мобильный-телефон------------------->
+
+<!---------------------------Описание-эмбеда------------------------------>
+<meta property="og:description" content="Получите специальную ссылку без рекламы, ограничений и мгновенного перенаправления.">
+<!---------------------------Описание-эмбеда------------------------------>
+
+<!---------------------Краткое-описание-страницы-------------------------->
+<meta name="description" content="Получите специальную ссылку без рекламы, ограничений и мгновенного перенаправления.">
+<!---------------------Краткое-описание-страницы-------------------------->
+
+<!-------------------------Описание-эмбеда-title-------------------------->
+<meta name="og:title" content="Free links">
+<!-------------------------Описание-эмбеда-title-------------------------->
+
+<!--------------------------Картинка-в-виде-A4--------------------------->
+<meta name="og:image" content="https://cdn.discordapp.com/attachments/889247705614921849/921364309752299560/20211217_132432.png">
+<!--------------------------Картинка-в-виде-A4--------------------------->
+
+<!------------------------------Цвет-эмбеда------------------------------->
+<meta name="theme-color" content="#7289DA">
+<!------------------------------Цвет-эмбеда------------------------------->
+
+<!--------------------------Картинка-в-виде-A4--------------------------->
+<meta property="twitter:card" content="summary_large_image">
+<!--------------------------Картинка-в-виде-A4--------------------------->
+
+<!-----------------------------Аватар-title------------------------------>
+<link rel="icon" href="https://cdn.discordapp.com/attachments/889247705614921849/903707188269314058/20211029_210923.png">
+<!-----------------------------Аватар-title------------------------------>
+
+<!----------------------------Ключивие-слова------------------------------>
+<meta itemprop="keywords" name="keywords" content="Discord, Vanlink, Link, Url, Vanlink.ru, Дискорд, Ссылка, Саздать, ссылка, дискорд, создать, discord, vanlink, vanlink.ru, url, link, Masamune, masamune, dashboard, Dashboard, Сократить ссылку, Сокращеноя ссылка, Создать ссылку, сократить ссылку, сокращеноя ссылка, создать ссылку">
+<!----------------------------Ключивие-слова------------------------------>
+<script async src='https://vanlink.ru/cdn-cgi/challenge-platform/h/b/scripts/invisible.js'></script>
+</head>
+
+<body class="bg-gray-900 min-h-screen text-white" style="overflow-x:hidden">
+
+<nav style="background:#12161f" class="fixed bg-gray-900 z-50 w-full px-8 border-b-2 border-gray-800">
+
+<div class="flex items-center justify-left lg:px-4 sm:px-0 mx-auto lg:mx-none">
+<div class="cursor-pointer flex items-center leading-none float-left py-2 mt-2 mb-2">
+
+<div id="mySidenav" class="sidenav">
+<a href="javascript:void(0)" class="closebtn2" onclick="closeNav()"><i class="far fa-times"></i></a>
+<center><a href="index.html" class="button1"><i class="fas fa-home" style="color:#FFCD00"></i> Главная</a></center><br>
+<center><a href="premium.html" class="button1"><i class="fas fa-crown" style="color:#FFCD00"></i> Премиум</a></center><br>
+<center><a class="button1 disabled"><i class="fas fa-atlas" style="color:#FFCD00"></i> Правила</a></center><br>
+<center><a href="faq.html" class="button1"><i class="fas fa-question" style="color:#FFCD00"></i> FAQ</a></center><br>
+<center><a href="developers.html" class="button1"><i class="fas fa-user-crown" style="color:#FFCD00"></i> Разработчик</a></center><br>
+<center><a href="chat.html" class="button1"><i class="far fa-comment-dots" style="color:#FFCD00"></i> Чат</a></center>
+</div>
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fal fa-bars"></i></span>
+
+<div class="flex items-center justify-end space-x-5 fixed right-0 mr-6">
+<div class="cursor-pointer flex-initial py-2 hover:text-white justify-center items-center flex">
+<img id="avatar_here" @click="dropdownOpen = !dropdownOpen" class="rounded-full w-10 inline" onclick="location.href = '/dashboard'" onerror="if (this.src != 'https://cdn.discordapp.com/attachments/889247705614921849/901463032822112276/20211014_142929.png') this.src = 'https://cdn.discordapp.com/attachments/889247705614921849/901463032822112276/20211014_142929.png';" />
+<div @click="dropdownOpen = !dropdownOpen" class="cursor-pointer flex-initial px-3 py-2 hover:text-white  rounded justify-center items-center flex text-discord-700 inline-block" id="nicknameofg" onclick="location.href = '/dashboard'"><a href="login.html" class="cursor-pointer flex-initial px-3 py-2 hover:text-white  rounded justify-center items-center flex text-discord-700 bg-gray-900 hover:bg-gray-800"><i class="fab fa-discord m-2 md:hidden"></i> Войти</a>
+</div>
+</div>
+</div>
+</nav>
+<script>
+document.onkeydown = function(e) {
+if(event.keyCode == 123) {
+return false;}
+if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+return false;}
+if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+return false;}
+if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+return false;}}
+
+function openNav() {document.getElementById("mySidenav").style.width = "250px";}
+
+function closeNav() {document.getElementById("mySidenav").style.width = "0";}
+</script>
+
+
+<style>
+.disabled {
+opacity: 0.6;
+cursor: not-allowed;}
+
+.button1 {
+background-color: #4F545C;
+color: white;
+padding: 12px;
+text-align: center;
+display: inline-block;
+cursor: pointer;
+border-radius: 5px;
+width: 190px;
+font-weight:700;}
+
+.sidenav {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: #111;
+overflow-x: hidden;
+transition: 0.5s;
+padding-top: 60px;}
+
+.sidenav a {
+text-decoration: none;
+font-size: 19px;
+color: #f1f1f1;
+display: block;
+transition: 0.3s;}
+
+.sidenav .closebtn2 {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;}
+
+.closebtn2 {
+margin-left: 15px;
+margin-top: 10px;
+color: black;
+font-weight: bold;
+float: right;
+font-size: 22px;
+line-height: 17px;
+cursor: pointer;
+transition: 0.3s;}
+
+.closebtn2:hover {
+color: red;}
+
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}}
+
+.closebtn {
+margin-left: 15px;
+color: black;
+font-weight: bold;
+float: right;
+font-size: 22px;
+line-height: 17px;
+cursor: pointer;
+transition: 0.3s;}
+
+.closebtn:hover {
+color: red;}
+
+.tooltip {
+position: relative;
+display: inline-block;}
+
+.tooltip .tooltiptext {
+visibility: hidden;
+width: 90px;
+height: 30px;
+font-size: 13px;
+padding: 6px;
+background-color: #2f3136;
+color: #fff;
+text-align: center;
+border-radius: 2px;
+position: absolute;
+z-index: 1;
+bottom: 150%;
+margin-left: -55px;
+opacity: 0;
+transition: opacity 0.3s;}
+
+.tooltip .tooltiptext::after {
+content: "";
+position: absolute;
+top: 100%;
+left: 51%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: #2f3136 transparent transparent transparent;}
+
+.tooltip:hover .tooltiptext {
+visibility: visible;
+opacity: 1;}
+
+
+.tooltip2 {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip2 .tooltiptext2 {
+  visibility: hidden;
+  width: 150px;
+  height: 30px;
+  font-size: 13px;
+  padding: 6px;
+  background-color: #2f3136;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: -70%;
+  margin-left: -50px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip2 .tooltiptext2::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 51%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #2f3136 transparent transparent transparent;
+}
+
+.tooltip2:hover .tooltiptext2 {
+  visibility: visible;
+  opacity: 1;
+}
+
+.gradient {
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+background-image: linear-gradient(90deg,#0cc8f7, #338cf5);}
+
+.button8 {
+  background-color: #4F535C;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 700;
+  padding: 5px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.blook {
+  background-color: #157BE8;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 700;
+  padding: 5px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+
+.button9:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+</style>
+
+
+<div class="sm:py-12 px-8 min-h-screen text-center">
+<div class="relative py-3 max-w-screen-xl mx-auto">
+<div class="flex my-8 items-center">
+<div class="flex-1">
+<br><br class="lg:hidden"><br class="lg:hidden"><br class="lg:hidden">
+<span class="font-black text-white text-3xl md:text-4xl lg:text-5xl">
+Обновите свою ссылку на vanlink.ru<span class="gradient">/premium</span><br>
+</span><br><br>
+<a href="https://oplata.qiwi.com/form?invoiceUid=db1be198-44cc-4fab-9fe6-59f3235bea86" style="color:#ffc84c"><button class="button8 button9"><i class="fal fa-gift"></i> Купить</button></a>
+<br><br><br>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-5 mx-10 xl:mx-56">
+
+
+<div class="bg-gray-800 p-3 w-full text-center h-64 shadow hover:shadow-2xl transition duration-200" style="border-radius:10px;margin:10px;display:inline-block">
+<h1 class="font-semibold text-orange-500" style="font-size:17px">Неограниченные Ссылки</h1>
+<h3 class="text-sm mt-2 text-gray-400">Обойдите ограничение в 3 ссылки для бесплатных пользователей и получите возможность создать 10 ссылок!</h3>
+</div>
+
+<div class="bg-gray-800 p-3 w-full text-center h-64 shadow hover:shadow-2xl transition duration-200" style="border-radius:10px;margin:10px;display:inline-block">
+<h1 class="font-semibold text-blue-500" style="font-size:17px">Роль на Сервере</h1>
+<h3 class="mt-2 text-gray-400 text-sm">Получите роль @Premium на сервере с куча плюшками, просмотр аудита, доступ к логам сервера, доступ в секретный канал, приоритет ваших просьб и вопросов, возможность изменять никнейм на сервере, и прочие!</h3>
+</div>
+
+<div class="bg-gray-800 p-3 w-full text-center h-64 shadow hover:shadow-2xl transition duration-200" style="border-radius:10px;margin:10px;display:inline-block">
+<h1 class="font-semibold text-red-500" style="font-size:17px">Специальние Ссылки</h1>
+<h3 class="mt-2 text-gray-400 text-sm">Ваша ссылка получит золотую рамку и корону в углу на главной странице, чтобы выделиться!</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

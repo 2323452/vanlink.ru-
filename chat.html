@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vanlink</title>
+<!---------------------Импорт-Fontawesome-Pro-версия---------------------->
+<link href="https://kit-pro.fontawesome.com/releases/v5.13.0/css/pro.min.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'">
+<!---------------------Импорт-Fontawesome-Pro-версия---------------------->
+<!------------------------------Название-сайта---------------------------->
+<meta property="og:site_name" content="Vanlink">
+<!------------------------------Название-сайта---------------------------->
+
+<!-------------------------------url-ссылка------------------------------->
+<meta property="og:url" content="https://vanlink.ru">
+<!-------------------------------url-ссылка------------------------------->
+
+<!----------------------Адаптация-под-мобильный-телефон------------------->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!----------------------Адаптация-под-мобильный-телефон------------------->
+
+<!---------------------------Описание-эмбеда------------------------------>
+<meta property="og:description" content="Получите специальную ссылку без рекламы, ограничений и мгновенного перенаправления.">
+<!---------------------------Описание-эмбеда------------------------------>
+
+<!---------------------Краткое-описание-страницы-------------------------->
+<meta name="description" content="Получите специальную ссылку без рекламы, ограничений и мгновенного перенаправления.">
+<!---------------------Краткое-описание-страницы-------------------------->
+
+<!-------------------------Описание-эмбеда-title-------------------------->
+<meta name="og:title" content="Free links">
+<!-------------------------Описание-эмбеда-title-------------------------->
+
+<!--------------------------Картинка-в-виде-A4--------------------------->
+<meta name="og:image" content="https://cdn.discordapp.com/attachments/889247705614921849/921364309752299560/20211217_132432.png">
+<!--------------------------Картинка-в-виде-A4--------------------------->
+
+<!------------------------------Цвет-эмбеда------------------------------->
+<meta name="theme-color" content="#7289DA">
+<!------------------------------Цвет-эмбеда------------------------------->
+
+<!--------------------------Картинка-в-виде-A4--------------------------->
+<meta property="twitter:card" content="summary_large_image">
+<!--------------------------Картинка-в-виде-A4--------------------------->
+
+<!-----------------------------Аватар-title------------------------------>
+<link rel="icon" href="https://cdn.discordapp.com/attachments/889247705614921849/903707188269314058/20211029_210923.png">
+<!-----------------------------Аватар-title------------------------------>
+
+<!----------------------------Ключивие-слова------------------------------>
+<meta itemprop="keywords" name="keywords" content="Discord, Vanlink, Link, Url, Vanlink.ru, Дискорд, Ссылка, Саздать, ссылка, дискорд, создать, discord, vanlink, vanlink.ru, url, link, Masamune, masamune, dashboard, Dashboard, Сократить ссылку, Сокращеноя ссылка, Создать ссылку, сократить ссылку, сокращеноя ссылка, создать ссылку, Сократить ссылку дискорд, сократить ссылку дискорд">
+<!----------------------------Ключивие-слова------------------------------>
+<style>
+.chat.posted {
+  background-color: #363A3F;
+	padding: 8px;
+	position: relative;
+}
+
+.chat.post.img {
+	background: #222;
+	border-radius: 100%;
+	width: 40px;
+	height: 40px;
+  border: solid 2px #363A3F;
+}
+
+.chat.post.text {
+	word-break: break-word;
+	font-size: 13px;
+}
+
+.chat.post.textwrap {
+	margin-bottom: -15px;
+  margin-top: -25px;
+  margin-left: 53px;
+}
+
+.chat.post.nick {
+	margin-left: 9px;
+	margin-top: 3px;
+	font-weight: bold;
+	position: absolute;
+	font-size: 14px;
+}
+
+body {
+	width: 93%;
+	height: 100%;
+  background-color: #363A3F;
+	margin: 0;
+	padding: 20px 0 0 0;
+	font-family: 'Exo 2', sans-serif;
+	position: relative;
+}
+
+.button {
+  background-color: #5865F2;
+  border: none;
+  color: white;
+  padding: 11px 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 7px 11px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 50px;
+  transform: rotate(90deg);
+}
+
+.button:hover {
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button2 {
+  background-color: #DE5834;
+  border: none;
+  color: white;
+  padding: 10px 11px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 50px;
+}
+
+.button2:hover {
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input[type=text] {
+width: 60%;
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+border: none;
+background-color: #292B2F;
+color: white;
+font-weight: 700;
+border-radius: 50px;
+outline: 0;
+outline-offset: 0;
+}
+
+.bykva {
+padding: 12px 15px;
+margin: 8px 0;
+box-sizing: border-box;
+border: none;
+background-color: #292B2F;
+color: white;
+font-weight: 700;
+border-radius: 50px;
+}
+
+.deletetext {
+color: #DE5834;
+font-size: 14px;
+cursor: pointer;
+}
+
+.copytext {
+color: white;
+font-size: 13px;
+cursor: pointer;
+}
+
+.ping {
+  color: hsl(236,calc(1*83.3%),92.9%);
+  background-color: hsla(235,calc(1*85.6%),64.7%,0.3);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+<script src="https://unpkg.com/notie"></script>
+<script>
+// Сбрасивает токен 1 раз козда заходишь на сайт //
+window.addEventListener("load",function(){
+if (localStorage.getItem("rv") != "v2") {
+localStorage.removeItem("duscordsave");
+localStorage.setItem("rv","v2");
+}});
+// P.S Можно поменять v1 на v2 и тогда заново сброс будет работать //
+</script>
+<script>
+window.addEventListener("load",function(){
+  doAuth();
+  getMessages();
+  setInterval(getMessages,3000);
+});
+function doChatTasks(q) {
+var msgsd = JSON.parse(q);
+var msgsdp = "";
+for (var msg of msgsd) {
+if (msg[(msg.length -1)] == "myown") {
+var msgid = (msg[(msg.length -1)] == "myown") ? msg[(msg.length -2)] : msg[(msg.length -1)];
+var delbtn = ` <a class="deletetext" onclick="deleteMessage(${msgid});"><i class="far fa-trash-alt"></i></a>`;
+} else {
+var delbtn = "";
+}
+msgsdp += `<div class="chat posted" id="logs"><img src="https://vanlink.ru/chat/${msg[3]}" onerror="if (this.src != 'https://cdn.discordapp.com/embed/avatars/0.png') this.src = 'https://cdn.discordapp.com/embed/avatars/0.png';" class="chat post img"><span class="chat post nick tooltipbg" style="color: #fff;"><span style="cursor: pointer;" onclick="addToMessage('@${msg[0].split('\'').join('\\\'').split("\"").join("\\\"")}');">${msg[0]}</span> <span class="chat post" style="right:155px;font-size:10px;font-weight:normal;font-size:12px;cursor:default;color:#72777D;">${new Date(parseInt(msg[1])).toLocaleDateString()}</span>${delbtn}</span><div class="chat post textwrap"><span class="chat post text" style="color:#fff;cursor:pointer;" onclick="copyTheText(this);">${msg[2].split("[ping]").join("<span class=\"ping\">@").split("[/ping]").join("</span>")}</span></div><br/></div>`;
+}
+document.querySelector("#pstmsgs").innerHTML = `<center><h2 style="color:#fff;font-size:25px;">Добро пожаловать на канал #чат!</h2></center>${msgsdp}`;
+}
+function getMessages() {
+var xhr = new XMLHttpRequest();
+xhr.open("POST",`${location.origin}/chat/getmessages`);
+xhr.setRequestHeader("Content-Type","application/json");
+xhr.onreadystatechange = function() {
+if (xhr.readyState == 4 && xhr.status == 400) {
+localStorage.removeItem("duscordsave");
+location = "/chat/login";
+}
+if (xhr.readyState == 4 && xhr.status == 200) {
+doChatTasks(xhr.responseText);
+}
+};
+xhr.send(JSON.stringify({"token":`${usetokentype} ${usetoken}`}));
+}
+var usetokentype = null;
+var usetoken = null;
+function doAuth() {
+  var r2 = null;
+  var r = {};
+  var r2 = location.hash.substring(1).split("&");
+  for (var r3 in r2) {
+    var r4 = r2[r3].split("=");
+    r[r4[0]] = r4[1];
+  }
+  if (r.token_type && r.access_token) {
+    usetokentype = r.token_type;
+    usetoken = r.access_token;
+    localStorage.setItem("duscordsave",location.hash.substring(1));
+    history.pushState(null,null,"/chat");
+  }
+  if (localStorage.getItem("duscordsave")) {
+    if (!r.token_type || !r.access_token) {
+      history.pushState(null,null,`/chat#${localStorage.getItem("duscordsave")}`);
+      doAuth();
+      return false;
+    }
+  } else {
+    if (!r.token_type || !r.access_token) {
+      location = "/chat/login";
+    }
+  }
+}
+function sendMessage() {
+  var content = document.querySelector("#message").value;
+  document.querySelector("#message").value = "";
+  document.querySelector("#message").focus();
+  if (content == "") {
+    return false;
+  }
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST",`${location.origin}/chat/sendmessage`);
+  xhr.setRequestHeader("Content-Type","application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 400) {
+      localStorage.removeItem("duscordsave");
+      location = "/chat/login";
+    }
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      doChatTasks(xhr.responseText);
+    }
+  };
+  xhr.send(JSON.stringify({"content":content,"token":`${usetokentype} ${usetoken}`}));
+}
+function deleteMessage(id) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST",`${location.origin}/chat/deletemessage`);
+  xhr.setRequestHeader("Content-Type","application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      doChatTasks(xhr.responseText);
+    }
+  };
+  xhr.send(JSON.stringify({"id":id,"token":`${usetokentype} ${usetoken}`}));
+}
+function addToMessage(q) {
+  document.querySelector("#message").value += q;
+}
+function copyTheText(elem) {
+var textArea = document.createElement("textarea");
+textArea.value = elem.innerText;
+document.body.appendChild(textArea);
+textArea.select();
+document.execCommand("Copy");
+textArea.remove();
+notie.alert({
+type: "success",
+text: "Текст Скопирован!",
+time: 1.0,
+position: "bottom"
+});
+}
+</script>
+</head>
+<body>
+<div id="pstmsgs" class="container col-12 col-sm-10 col-md-10 col-xl-6">
+<center><h2 style="color:#fff;font-size:25px;">Добро пожаловать на канал #чат!</h2></center>
+</div>
+<br>
+<center><input v-model="phrase" type="text" id="message" maxlength="1000" class="inp2" placeholder="Написать #чат" autocomplete="off"> <button onclick="sendMessage();" class="button"><i class="fab fa-airbnb"></i></button> <button onclick='location.href="/"' class="button2"><i class="fas fa-home"></i></button> </center>
+</body>
+</html>
